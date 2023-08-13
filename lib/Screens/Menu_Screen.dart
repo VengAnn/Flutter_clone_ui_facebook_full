@@ -17,6 +17,27 @@ class Menu_Screen extends StatefulWidget {
 class _Menu_ScreenState extends State<Menu_Screen> {
   bool ShowMore = false;
 
+  List<String> listText = [
+    "save",
+    "Market",
+    "Reels",
+    "Group",
+    "Video",
+    "shop",
+    "Page",
+    "News",
+  ];
+  List<IconData> listIconData = [
+    Icons.save,
+    Icons.store,
+    Icons.ondemand_video,
+    Icons.group,
+    Icons.video_call,
+    Icons.shop,
+    Icons.flag,
+    Icons.newspaper,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,13 +125,11 @@ class _Menu_ScreenState extends State<Menu_Screen> {
             //
             Row(
               children: [
-                // ignore: avoid_unnecessary_containers
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: GestureDetector(
                       onTap: () {
-                        // ignore: avoid_print
                         print("help");
                       },
                       child: SizedBox(
@@ -203,6 +222,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
         width: double.maxFinite,
         child: GridView.builder(
           scrollDirection: Axis.vertical,
+          physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 5,
@@ -211,7 +231,10 @@ class _Menu_ScreenState extends State<Menu_Screen> {
           ),
           itemCount: getItemCount(),
           itemBuilder: (context, index) {
-            return _getContainerWidget("Save", Icons.save);
+            return _getContainerWidget(
+                // ignore: unnecessary_string_interpolations
+                "${listText[index]}",
+                listIconData[index]);
           },
         ),
       ),

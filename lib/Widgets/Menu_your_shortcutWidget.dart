@@ -11,7 +11,7 @@ class Menu_Your_ShortcutsShow_widget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           child: Row(
             children: [
               Expanded(
@@ -32,6 +32,13 @@ class Menu_Your_ShortcutsShow_widget extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
                                 border: Border.all(width: 1),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: Image.network(
+                                  "https://blog.logrocket.com/wp-content/uploads/2022/02/Best-IDEs-Flutter-2022.png",
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                             //
@@ -63,6 +70,12 @@ class Menu_Your_ShortcutsShow_widget extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     border: Border.all(width: 1),
                                     shape: BoxShape.circle),
+                                child: const CircleAvatar(
+                                  radius: 15,
+                                  backgroundImage: NetworkImage(
+                                    "https://nebulae-assets.s3.amazonaws.com/3b56d17152bd46c295797a7eaab1f244.jpg",
+                                  ),
+                                ),
                               ),
                             ),
                             //
