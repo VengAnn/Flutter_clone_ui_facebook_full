@@ -10,6 +10,7 @@ const GradientColors = LinearGradient(
     colors: [Colors.amber, Colors.red]);
 
 const kColorLight = Colors.white;
+const kColorGrey = Colors.grey;
 
 // ignore: constant_identifier_names
 const KlogoURL = NetworkImage(

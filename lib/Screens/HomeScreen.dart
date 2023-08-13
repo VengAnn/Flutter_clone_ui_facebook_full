@@ -4,6 +4,7 @@ import 'package:clone_ui_facebook/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'Menu_Screen.dart';
 import 'new_feed.dart';
 import 'notification_Screen.dart';
 
@@ -113,10 +114,8 @@ class HomeScreen extends StatelessWidget {
           const videoScreen(),
           //
           const notification_Screen(),
-          // ignore: avoid_unnecessary_containers
-          Container(
-            child: const Text("Menu"),
-          ),
+          //
+          const Menu_Screen(),
         ]),
       ),
     );
