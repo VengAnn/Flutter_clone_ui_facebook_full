@@ -46,6 +46,9 @@ class new_feed extends StatelessWidget {
                                 like: listPosts[index + 1].like,
                                 comment: listPosts[index + 1].comment,
                                 share: listPosts[index + 1].share,
+                                controller: null, //photo don't have controller
+                                isvideo:
+                                    false, //isVideo =false meanig is show photo not video
                               );
                             }),
                       ),

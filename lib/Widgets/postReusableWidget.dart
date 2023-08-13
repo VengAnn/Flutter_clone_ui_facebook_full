@@ -16,7 +16,8 @@ class postReusableWidget extends StatefulWidget {
   final String like;
   final String comment;
   final String share;
-
+  final bool? isvideo;
+  final VideoPlayerController? controller;
   const postReusableWidget({
     required this.profileUrl,
     required this.userName,
@@ -26,6 +27,8 @@ class postReusableWidget extends StatefulWidget {
     required this.like,
     required this.comment,
     required this.share,
+    this.isvideo,
+    this.controller,
     super.key,
   });
 
@@ -106,48 +109,90 @@ class _postReusableWidgetState extends State<postReusableWidget> {
           //
           Text("${widget.caption}"),
           //
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Stack(
-                    children: [
-                      PhotoView(
-                        imageProvider: NetworkImage("${widget.photoUrl}"),
-                      ),
-                      //
-                      SafeArea(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            width: 50,
-                            height: 50,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
+          widget.isvideo == false
+              ? GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Stack(
+                          children: [
+                            PhotoView(
+                              imageProvider: NetworkImage("${widget.photoUrl}"),
                             ),
-                            child: const Icon(
-                              Icons.close,
-                              color: kPrimaryColor,
+                            //
+                            SafeArea(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  child: const Icon(
+                                    Icons.close,
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Image.network(
+                    "${widget.photoUrl}",
+                    width: double.infinity,
+                    height: 500,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              : widget.controller!.value.isInitialized
+                  ? Stack(
+                      children: [
+                        AspectRatio(
+                          aspectRatio: widget.controller!.value.aspectRatio,
+                          child: VideoPlayer(widget.controller!),
+                        ),
+                        Positioned(
+                          top: 0,
+                          bottom: 0,
+                          right: 0,
+                          left: 0,
+                          child: IconButton(
+                            onPressed: () {
+                              widget.controller!.value.isPlaying
+                                  ? widget.controller!.pause()
+                                  : widget.controller!.play();
+                              setState(() {});
+                            },
+                            icon: Center(
+                              child: Icon(
+                                widget.controller!.value.isPlaying
+                                    ? Icons.pause
+                                    : Icons.play_arrow,
+                                color: kColorLight,
+                                size: 50,
+                              ),
                             ),
                           ),
                         ),
+                      ],
+                    )
+                  : Container(
+                      height: 500,
+                      child: Center(
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.play_arrow),
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              );
-            },
-            child: Image.network(
-              "${widget.photoUrl}",
-              width: double.infinity,
-              height: 500,
-              fit: BoxFit.cover,
-            ),
-          ),
+                    ),
           //
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5.0),
