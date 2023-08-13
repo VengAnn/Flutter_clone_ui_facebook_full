@@ -184,7 +184,7 @@ class _postReusableWidgetState extends State<postReusableWidget> {
                         ),
                       ],
                     )
-                  : Container(
+                  : SizedBox(
                       height: 500,
                       child: Center(
                         child: IconButton(

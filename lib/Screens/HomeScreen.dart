@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'new_feed.dart';
+import 'notification_Screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 1,
-      length: 6,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: kColorLight,
@@ -82,12 +83,7 @@ class HomeScreen extends StatelessWidget {
                   color: kPrimaryColor,
                 ),
               ),
-              Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.store,
-                  color: kPrimaryColor,
-                ),
-              ),
+              //
               Tab(
                 icon: FaIcon(
                   Icons.notifications,
@@ -109,22 +105,14 @@ class HomeScreen extends StatelessWidget {
         body: TabBarView(children: [
           const new_feed(),
           //
+          // ignore: avoid_unnecessary_containers
           Container(
             child: const Text("Add friends"),
           ),
           //
           const videoScreen(),
           //
-          // ignore: avoid_unnecessary_containers
-          Container(
-            child: const Text("Store or Market"),
-          ),
-          //
-          // ignore: avoid_unnecessary_containers
-          Container(
-            child: const Text("Notifications"),
-          ),
-          //
+          const notification_Screen(),
           // ignore: avoid_unnecessary_containers
           Container(
             child: const Text("Menu"),
