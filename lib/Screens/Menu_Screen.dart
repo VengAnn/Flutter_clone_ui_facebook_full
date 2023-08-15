@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:clone_ui_facebook/Screens/HomeScreen.dart';
+import 'package:clone_ui_facebook/Screens/LoginScreen.dart';
 import 'package:clone_ui_facebook/constant.dart';
 import 'package:flutter/material.dart';
 import '../Widgets/Menu_Bar_show_widget.dart';
@@ -171,7 +173,14 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                          builder: (context) {
+                            // ignore: prefer_const_constructors
+                            return LoginScreen();
+                          },
+                        ), (route) => false);
+                      },
                       child: const Text("Logout"),
                     ),
                   ),
