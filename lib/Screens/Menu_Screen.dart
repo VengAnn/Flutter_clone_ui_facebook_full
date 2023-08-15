@@ -1,6 +1,6 @@
+// ignore: file_names
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:clone_ui_facebook/Screens/HomeScreen.dart';
 import 'package:clone_ui_facebook/Screens/LoginScreen.dart';
 import 'package:clone_ui_facebook/constant.dart';
 import 'package:flutter/material.dart';
@@ -87,32 +87,64 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                         // ignore: avoid_print
                         print("help");
                       },
-                      child: SizedBox(
-                        width: double.maxFinite,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Row(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.maxFinite,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CircleAvatar(
-                                  child: Icon(Icons.question_mark_outlined),
+                                const Row(
+                                  children: [
+                                    CircleAvatar(
+                                      child: Icon(Icons.question_mark_outlined),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text("Help & Support"),
+                                  ],
                                 ),
-                                SizedBox(
-                                  width: 10,
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        //\
+                                        ShowMore = !ShowMore;
+                                        setState(() {});
+                                      },
+                                      icon: const Icon(Icons.arrow_drop_down),
+                                    ),
+                                  ],
                                 ),
-                                Text("Help & Support"),
                               ],
                             ),
-                            Row(
+                          ),
+                          SizedBox(
+                            height: ShowMore ? 0 : 150,
+                            child: Column(
                               children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.arrow_drop_down),
+                                Container(
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: Colors.amber,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: Colors.amber,
+                                  ),
                                 ),
                               ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

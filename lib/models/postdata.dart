@@ -40,7 +40,8 @@ var listPosts = [
         "https://image.lexica.art/full_jpg/00ea3399-b52e-4268-920b-6b5b9d243ae2",
     userName: "Doctor Strange",
     postTime: "just Now",
-    caption: "Hello I'm Doctor Strange",
+    caption:
+        "Hello I'm Doctor Strange s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
     photoUrl:
         "https://image.lexica.art/full_jpg/3ee7aa2e-d7e1-4705-b86a-c6192b1742fd",
     like: "22k",

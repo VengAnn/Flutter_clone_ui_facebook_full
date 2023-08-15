@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'Menu_Screen.dart';
+import 'add_friend_Screen.dart';
 import 'new_feed.dart';
 import 'notification_Screen.dart';
 
@@ -103,20 +104,19 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         //
-        body: TabBarView(children: [
-          const new_feed(),
-          //
-          // ignore: avoid_unnecessary_containers
-          Container(
-            child: const Text("Add friends"),
-          ),
-          //
-          const videoScreen(),
-          //
-          const notification_Screen(),
-          //
-          const Menu_Screen(),
-        ]),
+        body: TabBarView(
+          children: [
+            const new_feed(),
+            //
+            add_friend_Screen(),
+            //
+            const videoScreen(),
+            //
+            const notification_Screen(),
+            //
+            const Menu_Screen(),
+          ],
+        ),
       ),
     );
   }

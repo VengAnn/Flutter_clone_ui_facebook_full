@@ -64,20 +64,26 @@ class Menu_Bar_show_Widget extends StatelessWidget {
                       elevation: 0,
                     ),
                     onPressed: () {},
-                    child: const Row(
+                    child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 20,
                           backgroundImage: NetworkImage(
                               "https://e5fodz76tgp.exactdn.com/wp-content/uploads/2023/05/Dasha-Taran-Instagram-Model-Biography-Age-and-Boyfriend.jpg"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        Text(
+                        const Text(
                           "Jonh",
                           style: TextStyle(color: Colors.black),
                         ),
+                        const Spacer(),
+                        //
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                                Icons.arrow_drop_down_circle_outlined))
                       ],
                     ),
                   ),

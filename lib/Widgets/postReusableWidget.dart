@@ -107,7 +107,13 @@ class _postReusableWidgetState extends State<postReusableWidget> {
             ),
           ),
           //
-          Text("${widget.caption}"),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              "${widget.caption}",
+              textAlign: TextAlign.justify,
+            ),
+          ),
           //
           widget.isvideo == false
               ? GestureDetector(
